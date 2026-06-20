@@ -44,44 +44,40 @@
           </div>
         </div>
 
-        <aside class="calculator" aria-label="Quick calculator">
-          <div class="panel-heading">
-            <span>Mobile Money Quote</span>
-            <span class="status-pill">MVP route</span>
+        <aside class="hero-visual" aria-label="Zelnando WhatsApp transfer preview">
+          <div class="floating-receipt">
+            <span>Sent</span>
+            <strong>2,500 HTG</strong>
+            <small>Receipt ZLN-1001</small>
           </div>
-          <label for="sendAmount">You Send</label>
-          <div class="input-row">
-            <select id="sendCurrency" aria-label="Send currency">
-              <option>USD</option>
-              <option>HTG</option>
-              <option>CAD</option>
-              <option>EUR</option>
-            </select>
-            <input id="sendAmount" type="number" min="1" value="100" />
+          <div class="phone-frame">
+            <div class="phone-speaker"></div>
+            <div class="phone-screen">
+              <div class="chat-topbar">
+                <span class="chat-avatar">Z</span>
+                <div>
+                  <strong>Zelnando</strong>
+                  <small>WhatsApp money assistant</small>
+                </div>
+              </div>
+              <div class="hero-chat">
+                <p class="chat-bubble user">Send 2500 HTG to Mama Nadine</p>
+                <p class="chat-bubble bot">I found Mama Nadine. Payout: MonCash. Fee: 25 HTG.</p>
+                <p class="chat-bubble bot">Total: 2,525 HTG. Reply with your PIN to approve.</p>
+                <p class="chat-bubble user">1234</p>
+                <p class="chat-bubble bot success">Transfer approved. Receipt: ZLN-1001</p>
+              </div>
+              <div class="chat-compose">
+                <span>Message Zelnando</span>
+                <strong>WA</strong>
+              </div>
+            </div>
           </div>
-          <button class="swap-button" type="button" aria-label="Swap currencies">SW</button>
-          <label for="receiveAmount">They Receive</label>
-          <div class="input-row">
-            <select aria-label="Receive currency">
-              <option>HTG</option>
-            </select>
-            <input id="receiveAmount" type="text" value="13,589.50" readonly />
+          <div class="floating-contact">
+            <span>💬</span>
+            <strong>Mama Nadine</strong>
+            <small>MonCash ready</small>
           </div>
-          <dl class="quote-summary">
-            <div>
-              <dt>Exchange Rate</dt>
-              <dd id="calcRate">1 USD = 135.895 HTG</dd>
-            </div>
-            <div>
-              <dt>Transfer Fee</dt>
-              <dd id="calcFee">$1.99</dd>
-            </div>
-            <div>
-              <dt>Delivery Time</dt>
-              <dd>Minutes</dd>
-            </div>
-          </dl>
-          <a class="button button-primary full-width whatsapp-link" href="#" data-wa-text="Hi Zelnando, quote a mobile money transfer">Continue in WhatsApp</a>
         </aside>
       </section>
 
