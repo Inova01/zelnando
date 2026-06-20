@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zelnando | Transaction History</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="simple-dashboard-page">
+    <header class="simple-dashboard-header">
+      <a class="brand" href="index.html" aria-label="Zelnando home">
+        <span class="brand-mark">Z</span>
+        <span>Zelnando</span>
+      </a>
+      <a class="button button-primary whatsapp-link" href="#" data-wa-text="Hi Zelnando, open my account">Open WhatsApp</a>
+    </header>
+
+    <main class="simple-dashboard-main">
+      <section class="simple-dashboard-hero">
+        <div>
+          <p class="eyebrow">Customer history</p>
+          <h1>Transaction History</h1>
+          <p>
+            Your dashboard stays simple. Transfers, onboarding, PIN approval,
+            support, and saved recipients happen in WhatsApp.
+          </p>
+        </div>
+        <a class="button button-primary whatsapp-link" href="#" data-wa-text="Hi Zelnando, I want to send money">Send Money in WhatsApp</a>
+      </section>
+
+      <section class="simple-history-card">
+        <div class="dashboard-title-row">
+          <div>
+            <p class="eyebrow">Recent activity</p>
+            <h2>Transfers</h2>
+          </div>
+          <div class="tab-buttons" role="tablist" aria-label="Transfer status filters">
+            <button class="tab-button active" type="button" data-filter="all">All</button>
+            <button class="tab-button" type="button" data-filter="pending">Pending</button>
+            <button class="tab-button" type="button" data-filter="completed">Completed</button>
+          </div>
+        </div>
+
+        <div class="history-list" id="historyList">
+          <article class="history-item" data-status="completed">
+            <div>
+              <h3>Mama Nadine</h3>
+              <p>MonCash - Completed today at 09:18 - Receipt ZLN-1048</p>
+            </div>
+            <strong>2,500 HTG</strong>
+          </article>
+          <article class="history-item" data-status="pending">
+            <div>
+              <h3>Junior Pierre</h3>
+              <p>Natcash - Waiting for wallet confirmation</p>
+            </div>
+            <strong>4,000 HTG</strong>
+          </article>
+          <article class="history-item" data-status="completed">
+            <div>
+              <h3>Barber Studio</h3>
+              <p>QR Payment Pilot - Completed yesterday</p>
+            </div>
+            <strong>1,000 HTG</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="simple-action-grid">
+        <a class="simple-action whatsapp-link" href="#" data-wa-text="Hi Zelnando, track my transfer">
+          <span>Track</span>
+          <strong>Track a transfer</strong>
+          <p>Open WhatsApp and ask for the latest status.</p>
+        </a>
+        <a class="simple-action whatsapp-link" href="#" data-wa-text="Hi Zelnando, contact support">
+          <span>Help</span>
+          <strong>Contact support</strong>
+          <p>Report a delayed payout, wrong recipient, or PIN issue.</p>
+        </a>
+        <a class="simple-action whatsapp-link" href="#" data-wa-text="Hi Zelnando, show my saved recipients">
+          <span>People</span>
+          <strong>Saved recipients</strong>
+          <p>Manage contacts inside the WhatsApp conversation.</p>
+        </a>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

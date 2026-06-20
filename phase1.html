@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zelnando | Phase 1 Operations</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="phase-page">
+    <header class="phase-header">
+      <a class="brand" href="index.html" aria-label="Zelnando home">
+        <span class="brand-mark">Z</span>
+        <span>Zelnando</span>
+      </a>
+      <nav>
+        <a href="#kyc">KYC</a>
+        <a href="#text-transfer">Text Transfer</a>
+        <a href="#ledger">Ledger</a>
+        <a href="#payout">Payout</a>
+        <a href="#support-ops">Support</a>
+      </nav>
+      <a class="button button-secondary" href="dashboard.html">Customer Dashboard</a>
+    </header>
+
+    <main>
+      <section class="phase-hero">
+        <div>
+          <p class="eyebrow">Phase 1 build</p>
+          <h1>Domestic Mobile Money Operations</h1>
+          <p>
+            This console models the first production slice: WhatsApp text transfers,
+            KYC approval, PIN confirmation, immutable ledger events, MonCash/Natcash
+            payout routing, and support case handling.
+          </p>
+        </div>
+        <aside class="phase-health-card">
+          <span class="status-pill">MVP readiness</span>
+          <strong>72%</strong>
+          <p>Core flow designed. Partner API contracts and compliance review remain.</p>
+        </aside>
+      </section>
+
+      <section class="phase-stats">
+        <article><span>KYC Queue</span><strong>8</strong><small>3 need manual review</small></article>
+        <article><span>Transfers Today</span><strong>42</strong><small>39 completed</small></article>
+        <article><span>Payout Success</span><strong>97.6%</strong><small>MonCash/Natcash sandbox</small></article>
+        <article><span>Support Cases</span><strong>5</strong><small>2 urgent</small></article>
+      </section>
+
+      <section id="kyc" class="phase-section phase-two-col">
+        <div class="phase-card">
+          <p class="eyebrow">KYC intake</p>
+          <h2>Verify Before Moving Money</h2>
+          <div class="kyc-checklist">
+            <label><input type="checkbox" checked /> ID photo uploaded</label>
+            <label><input type="checkbox" checked /> Selfie matched</label>
+            <label><input type="checkbox" checked /> Phone number verified</label>
+            <label><input type="checkbox" /> Manual review cleared</label>
+            <label><input type="checkbox" checked /> PIN hash created</label>
+          </div>
+        </div>
+        <div class="phase-card soft-card">
+          <p class="eyebrow">User profile</p>
+          <h2>Lawrence Auguste</h2>
+          <dl class="quote-summary">
+            <div><dt>Phone</dt><dd>+509 3777 1234</dd></div>
+            <div><dt>Language</dt><dd>Haitian Creole</dd></div>
+            <div><dt>Risk Tier</dt><dd>Low</dd></div>
+            <div><dt>Daily Limit</dt><dd>25,000 HTG</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="text-transfer" class="phase-section transfer-lab">
+        <div class="phase-card">
+          <p class="eyebrow">WhatsApp text command</p>
+          <h2>Parse a Domestic Transfer</h2>
+          <label>
+            User message
+            <input id="phaseCommand" type="text" value="Send 2500 HTG to Mama Nadine" />
+          </label>
+          <button class="button button-primary" id="parseCommand" type="button">Parse and Check Rules</button>
+          <div class="parsed-output" id="parsedOutput">
+            <p>Ready to parse WhatsApp message.</p>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <p class="eyebrow">PIN approval</p>
+          <h2>Rule-Based Gate</h2>
+          <label>
+            Approval PIN
+            <input id="phasePin" type="password" inputmode="numeric" maxlength="4" placeholder="Enter 4 digits" />
+          </label>
+          <button class="button button-primary" id="approveTransfer" type="button">Approve Transfer</button>
+          <p class="form-message" id="phaseApprovalMessage"></p>
+          <div class="risk-box">
+            <strong>AI never approves money movement.</strong>
+            <p>Only the transaction service can approve after KYC, limits, recipient, PIN, and AML checks pass.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ledger" class="phase-section phase-card">
+        <div class="dashboard-title-row">
+          <div>
+            <p class="eyebrow">Immutable ledger</p>
+            <h2>Transaction Event Timeline</h2>
+          </div>
+          <button class="button button-secondary" id="appendLedgerEvent" type="button">Append Event</button>
+        </div>
+        <div class="ledger-timeline" id="ledgerTimeline">
+          <article><span>09:12:04</span><strong>intent.created</strong><p>WhatsApp text request captured.</p></article>
+          <article><span>09:12:05</span><strong>kyc.verified</strong><p>User is eligible for domestic transfer.</p></article>
+          <article><span>09:12:08</span><strong>quote.generated</strong><p>2,500 HTG + 25 HTG fee.</p></article>
+        </div>
+      </section>
+
+      <section id="payout" class="phase-section phase-two-col">
+        <div class="phase-card">
+          <p class="eyebrow">Payout routing</p>
+          <h2>MonCash / Natcash</h2>
+          <div class="rail-grid">
+            <article class="rail-card active">
+              <span>MC</span>
+              <h3>MonCash</h3>
+              <p>Primary route. Sandbox latency: 12 seconds.</p>
+            </article>
+            <article class="rail-card">
+              <span>NC</span>
+              <h3>Natcash</h3>
+              <p>Fallback route. Sandbox latency: 18 seconds.</p>
+            </article>
+          </div>
+        </div>
+        <div class="phase-card">
+          <p class="eyebrow">Settlement status</p>
+          <h2>Current Transfer</h2>
+          <dl class="quote-summary">
+            <div><dt>Recipient</dt><dd>Mama Nadine</dd></div>
+            <div><dt>Wallet</dt><dd>MonCash</dd></div>
+            <div><dt>Amount</dt><dd>2,500 HTG</dd></div>
+            <div><dt>Status</dt><dd id="settlementStatus">Waiting for PIN</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="support-ops" class="phase-section support-grid">
+        <article class="support-card">
+          <p class="eyebrow">Support dashboard</p>
+          <h2>Case Queue</h2>
+          <div class="history-list">
+            <article class="history-item" data-priority="urgent">
+              <div><h3>Delayed payout</h3><p>Junior Pierre - Natcash confirmation pending</p></div>
+              <strong>Urgent</strong>
+            </article>
+            <article class="history-item">
+              <div><h3>KYC manual review</h3><p>ID image needs operator approval</p></div>
+              <strong>Open</strong>
+            </article>
+            <article class="history-item">
+              <div><h3>PIN reset request</h3><p>User failed PIN 3 times</p></div>
+              <strong>Open</strong>
+            </article>
+          </div>
+        </article>
+        <article class="support-card soft-card">
+          <p class="eyebrow">Operator actions</p>
+          <h2>Manual Controls</h2>
+          <div class="operator-actions">
+            <button class="button button-secondary" type="button">Request New ID</button>
+            <button class="button button-secondary" type="button">Escalate AML Review</button>
+            <button class="button button-secondary" type="button">Retry Payout</button>
+            <button class="button button-primary" type="button">Resolve Case</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="phase1.js"></script>
+  </body>
+</html>

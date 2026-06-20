@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zelnando | WhatsApp Money Transfer for Haiti</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Zelnando home">
+        <span class="brand-mark">Z</span>
+        <span>Zelnando</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#how">How It Works</a>
+        <a href="#mvp">MVP</a>
+        <a href="#bot">Bot Logic</a>
+        <a href="#rates">Rates</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="text-link" href="dashboard.html">Log In</a>
+        <a class="button button-primary whatsapp-link" href="#" data-wa-text="Hi Zelnando, I want to get started">Start on WhatsApp</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Built for the Haitian community</p>
+          <h1>Send money to Haiti through WhatsApp.</h1>
+          <p class="hero-text">
+            Zelnando starts with one focused promise: domestic mobile-money
+            transfers through WhatsApp, backed by deterministic security,
+            compliance checks, and a ledger from day one.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary whatsapp-link" href="#" data-wa-text="Hi Zelnando, I want to send money">Start on WhatsApp</a>
+            <a class="button button-secondary whatsapp-link" href="#" data-wa-text="Hi Zelnando">Chat on WhatsApp</a>
+          </div>
+        </div>
+
+        <aside class="calculator" aria-label="Quick calculator">
+          <div class="panel-heading">
+            <span>Mobile Money Quote</span>
+            <span class="status-pill">MVP route</span>
+          </div>
+          <label for="sendAmount">You Send</label>
+          <div class="input-row">
+            <select id="sendCurrency" aria-label="Send currency">
+              <option>USD</option>
+              <option>HTG</option>
+              <option>CAD</option>
+              <option>EUR</option>
+            </select>
+            <input id="sendAmount" type="number" min="1" value="100" />
+          </div>
+          <button class="swap-button" type="button" aria-label="Swap currencies">SW</button>
+          <label for="receiveAmount">They Receive</label>
+          <div class="input-row">
+            <select aria-label="Receive currency">
+              <option>HTG</option>
+            </select>
+            <input id="receiveAmount" type="text" value="13,589.50" readonly />
+          </div>
+          <dl class="quote-summary">
+            <div>
+              <dt>Exchange Rate</dt>
+              <dd id="calcRate">1 USD = 135.895 HTG</dd>
+            </div>
+            <div>
+              <dt>Transfer Fee</dt>
+              <dd id="calcFee">$1.99</dd>
+            </div>
+            <div>
+              <dt>Delivery Time</dt>
+              <dd>Minutes</dd>
+            </div>
+          </dl>
+          <a class="button button-primary full-width whatsapp-link" href="#" data-wa-text="Hi Zelnando, quote a mobile money transfer">Continue in WhatsApp</a>
+        </aside>
+      </section>
+
+      <section class="trust-strip" aria-label="Benefits">
+        <div><span>S</span> Secure Transfers</div>
+        <div><span>PIN</span> Rule-Based Approval</div>
+        <div><span>AI</span> Assisted Chat</div>
+        <div><span>AML</span> Compliance Checks</div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Three steps</p>
+          <h2>How Zelnando Works</h2>
+          <p>Start with a simple WhatsApp message, let AI understand the request, then let backend rules handle every money decision.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="card">
+            <span class="step-number">1</span>
+            <h3>Ask in Natural Language</h3>
+            <p>Type "Send 5000 HTG to Mama" in Haitian Creole, French, Spanish, or English.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">2</span>
+            <h3>Confirm with Rules</h3>
+            <p>The backend checks identity, recipient, amount, fee, limits, AML status, and PIN approval.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">3</span>
+            <h3>Settle to Mobile Money</h3>
+            <p>The MVP routes approved transfers to MonCash or Natcash and sends a clear receipt.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="mvp" class="section muted">
+        <div class="section-heading">
+          <p class="eyebrow">MVP focus</p>
+          <h2>Launch One Reliable Flow First</h2>
+          <p>Domestic mobile-money transfers are the clearest first product: useful, understandable, and much easier to operate safely than crypto or cross-border settlement.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-icon">01</span>
+            <h3>WhatsApp Onboarding</h3>
+            <p>Collect the user profile, consent, preferred language, and first KYC status.</p>
+            <ul>
+              <li>ID upload and selfie match</li>
+              <li>KYC provider or manual review</li>
+              <li>PIN setup with retry limits</li>
+            </ul>
+            <a class="button button-primary full-width whatsapp-link" href="#" data-wa-text="Hi Zelnando, start my onboarding">Start Onboarding</a>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">02</span>
+            <h3>Domestic Transfer</h3>
+            <p>Send HTG from one verified user to a local mobile money wallet.</p>
+            <ul>
+              <li>MonCash and Natcash routing</li>
+              <li>Recipient phone validation</li>
+              <li>Instant confirmation receipt</li>
+            </ul>
+            <a class="button button-primary full-width whatsapp-link" href="#" data-wa-text="Hi Zelnando, I want to send mobile money">Send Mobile Money</a>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">03</span>
+            <h3>Saved Recipients</h3>
+            <p>Let returning users send money faster without weakening approvals.</p>
+            <ul>
+              <li>Nickname contacts like Mama</li>
+              <li>Last-transfer suggestions</li>
+              <li>Rule-based recipient confirmation</li>
+            </ul>
+            <a class="button button-primary full-width whatsapp-link" href="#" data-wa-text="Hi Zelnando, show my saved recipients">Use Saved Contact</a>
+          </article>
+          <article class="service-card">
+            <span class="service-icon">04</span>
+            <h3>Admin Review</h3>
+            <p>Give operators the tools to review failed, suspicious, and pending transfers.</p>
+            <ul>
+              <li>User and transaction dashboard</li>
+              <li>Limit and AML flags</li>
+              <li>Manual resolution queue</li>
+            </ul>
+            <a class="button button-primary full-width" href="#architecture">Review Controls</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="bot" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Hybrid bot</p>
+          <h2>AI for Convenience, Rules for Money</h2>
+          <p>The assistant can understand messy human requests, but final transaction authority stays inside deterministic services.</p>
+        </div>
+        <div class="split-grid">
+          <article class="decision-panel">
+            <span class="status-pill">AI-driven</span>
+            <h3>Conversation Layer</h3>
+            <ul>
+              <li>Detects intent and language</li>
+              <li>Reads receipts or QR photos when enabled</li>
+              <li>Suggests saved recipients</li>
+              <li>Explains errors and next steps</li>
+            </ul>
+          </article>
+          <article class="decision-panel strict">
+            <span class="status-pill">Rule-based</span>
+            <h3>Transaction Authority</h3>
+            <ul>
+              <li>Validates KYC status and limits</li>
+              <li>Confirms recipient, amount, and fee</li>
+              <li>Verifies PIN hash and locks on abuse</li>
+              <li>Writes immutable ledger events</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="rates" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Transparent pricing</p>
+          <h2>Competitive Rates</h2>
+          <p>Show users the route, fee, and expected delivery before they confirm.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Exchange Rate</th>
+                <th>Fee</th>
+                <th>Service</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>USD</td><td>HTG</td><td>135.895 HTG</td><td>$1.99</td><td>Mobile Money</td></tr>
+              <tr><td>HTG</td><td>HTG</td><td>1.000 HTG</td><td>25 HTG</td><td>MonCash</td></tr>
+              <tr><td>HTG</td><td>HTG</td><td>1.000 HTG</td><td>25 HTG</td><td>Natcash</td></tr>
+              <tr><td>USD</td><td>HTG</td><td>Pending approval</td><td>TBD</td><td>Phase 3</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="architecture" class="section muted">
+        <div class="section-heading">
+          <p class="eyebrow">Secure backend first</p>
+          <h2>WhatsApp Is the Interface, Zelnando Is the Brain</h2>
+          <p>The bot should never hold financial authority by itself. It gathers intent while the backend enforces security, compliance, and settlement.</p>
+        </div>
+        <div class="architecture-grid">
+          <article class="architecture-card">
+            <h3>WhatsApp Cloud API</h3>
+            <p>Text, image, QR, and template messages for user interaction.</p>
+          </article>
+          <article class="architecture-card">
+            <h3>AI Conversation Layer</h3>
+            <p>Intent parsing, language detection, recipient disambiguation, and guided error recovery.</p>
+          </article>
+          <article class="architecture-card">
+            <h3>Transaction Engine</h3>
+            <p>Initial routing for MonCash and Natcash, with bank, QR, and crypto modules added later.</p>
+          </article>
+          <article class="architecture-card">
+            <h3>Ledger and Compliance</h3>
+            <p>Immutable event log, KYC checks, AML screening, limits, approvals, and audit exports.</p>
+          </article>
+          <article class="architecture-card">
+            <h3>Admin Operations</h3>
+            <p>Queues for KYC review, failed payouts, suspicious activity, refunds, and support cases.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Phased roadmap</p>
+          <h2>Add Complexity Only After Trust</h2>
+          <p>Each phase should prove security, support, and compliance before the next layer goes live.</p>
+        </div>
+        <div class="roadmap">
+          <article>
+            <span>Phase 1</span>
+            <h3>Domestic Mobile Money</h3>
+            <p>WhatsApp text transfers, KYC, PIN approval, ledger, MonCash/Natcash payout, support dashboard.</p>
+            <a class="button button-primary full-width whatsapp-link roadmap-link" href="#" data-wa-text="Hi Zelnando, start a domestic mobile money transfer">Start in WhatsApp</a>
+          </article>
+          <article>
+            <span>Phase 2</span>
+            <h3>QR and Pay by Photo</h3>
+            <p>Merchant QR codes, receipt OCR, photo fallback to manual entry, and tighter fraud review.</p>
+          </article>
+          <article>
+            <span>Phase 3</span>
+            <h3>International and Crypto</h3>
+            <p>USD to HTG or USDT flows after BRH, banking, custody, sanctions, and AML partnerships are ready.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="use-cases" class="lifestyle-section">
+        <div class="lifestyle-heading">
+          <p class="eyebrow">Everyday payments</p>
+          <h2>Where Zelnando Fits Into Everyday Life</h2>
+          <p>Simple WhatsApp payments for the moments where cash is slow, unsafe, or unavailable.</p>
+        </div>
+        <div class="lifestyle-grid">
+          <article class="life-card food-stall">
+            <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Street food dishes ready for payment at a local stall" />
+            <div class="payment-bubble">
+              <strong>Sent 1,500 HTG</strong>
+              <small>to Street Food Stall</small>
+            </div>
+            <div class="life-copy">
+              <h3>Paying at a Food Stall</h3>
+              <p>Pay for lunch in seconds without carrying cash.</p>
+            </div>
+          </article>
+          <article class="life-card market">
+            <img src="https://media.lenouvelliste.com/articles/2025-10-28/Femmesaumarche_9457.jpg" alt="Haitian market vendors with fresh produce" />
+            <div class="payment-bubble">
+              <strong>Sent 3,000 HTG</strong>
+              <small>to Mama Nadine</small>
+            </div>
+            <div class="life-copy">
+              <h3>Paying a Market Vendor</h3>
+              <p>Settle up at a local market with a saved contact.</p>
+            </div>
+          </article>
+          <article class="life-card friends">
+            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=80" alt="Friends at a restaurant splitting a bill" />
+            <div class="payment-bubble">
+              <strong>Sent 2,000 HTG</strong>
+              <small>to Junior</small>
+            </div>
+            <div class="life-copy">
+              <h3>Splitting a Bill</h3>
+              <p>Scan a QR code and split the bill without confusion.</p>
+            </div>
+          </article>
+          <article class="life-card barber">
+            <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Hair and beauty service moment before payment" />
+            <div class="payment-bubble">
+              <strong>Sent 1,000 HTG</strong>
+              <small>to Barber Studio</small>
+            </div>
+            <div class="life-copy">
+              <h3>Haircut and Beauty</h3>
+              <p>Get styled, confirm by PIN, and receive a receipt.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="whatsapp" class="whatsapp-page">
+        <div class="whatsapp-page-heading">
+          <p class="eyebrow">Personal WhatsApp flow</p>
+          <h2>WhatsApp Money Transfer</h2>
+          <p>
+            A private chat experience for sending money, checking rates,
+            saving recipients, and getting help in the language users already use.
+          </p>
+        </div>
+
+        <div class="whatsapp-shell">
+          <div class="whatsapp-tabs" role="tablist" aria-label="WhatsApp transfer sections">
+            <button class="whatsapp-tab active" type="button" data-whatsapp-tab="features">Key Features</button>
+            <button class="whatsapp-tab" type="button" data-whatsapp-tab="languages">Languages</button>
+            <button class="whatsapp-tab" type="button" data-whatsapp-tab="simulator">Try It Out</button>
+          </div>
+
+          <div class="whatsapp-tab-panel active" data-whatsapp-panel="features">
+            <div class="whatsapp-feature-grid">
+              <article class="whatsapp-feature">
+                <span>WA</span>
+                <h3>Chat to Transfer</h3>
+                <p>Users can start with natural messages like "Send 2500 HTG to Mama Nadine."</p>
+              </article>
+              <article class="whatsapp-feature">
+                <span>PIN</span>
+                <h3>Secure Approval</h3>
+                <p>Every transfer requires rule checks and a private PIN confirmation before processing.</p>
+              </article>
+              <article class="whatsapp-feature">
+                <span>AI</span>
+                <h3>Smart Guidance</h3>
+                <p>The assistant understands language, saved recipients, and missing details without controlling money.</p>
+              </article>
+              <article class="whatsapp-feature">
+                <span>24</span>
+                <h3>Always Available</h3>
+                <p>Transfer status, receipts, rates, and support remain available through WhatsApp.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="whatsapp-tab-panel" data-whatsapp-panel="languages">
+            <div class="whatsapp-language-grid">
+              <article>
+                <h3>English</h3>
+                <p>"Welcome to Zelnando Money Transfer"</p>
+                <ul>
+                  <li>"I want to send money"</li>
+                  <li>"Track my transfer"</li>
+                  <li>"What are today's exchange rates?"</li>
+                </ul>
+              </article>
+              <article>
+                <h3>French</h3>
+                <p>"Bienvenue sur Zelnando Money Transfer"</p>
+                <ul>
+                  <li>"Je veux envoyer de l'argent"</li>
+                  <li>"Suivre mon transfert"</li>
+                  <li>"Quels sont les taux de change aujourd'hui?"</li>
+                </ul>
+              </article>
+              <article>
+                <h3>Spanish</h3>
+                <p>"Bienvenido a Zelnando Money Transfer"</p>
+                <ul>
+                  <li>"Quiero enviar dinero"</li>
+                  <li>"Seguir mi transferencia"</li>
+                  <li>"Cuales son las tasas de cambio hoy?"</li>
+                </ul>
+              </article>
+              <article>
+                <h3>Haitian Creole</h3>
+                <p>"Byenvini nan Zelnando Money Transfer"</p>
+                <ul>
+                  <li>"Mwen vle voye lajan"</li>
+                  <li>"Swiv transfe mwen an"</li>
+                  <li>"Ki to echanj jodi a?"</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="whatsapp-tab-panel" data-whatsapp-panel="simulator">
+            <div class="bot-simulator">
+              <div class="bot-header">
+                <div>
+                  <span class="bot-avatar">Z</span>
+                </div>
+                <div>
+                  <h3>Zelnando WhatsApp Bot</h3>
+                  <p>Test the multilingual transfer conversation flow.</p>
+                </div>
+              </div>
+
+              <div class="bot-start-row">
+                <input id="botPhone" type="tel" placeholder="Your phone number" aria-label="Your phone number" />
+                <button class="button button-primary" id="startBotChat" type="button">Preview Chat</button>
+                <button class="button button-secondary" id="runBotDemo" type="button">Run Demo</button>
+              </div>
+
+              <div class="chat-window" id="chatWindow" aria-live="polite">
+                <p class="chat-empty">Start a conversation to see messages here</p>
+              </div>
+
+              <div class="chat-input-row">
+                <input id="botMessage" type="text" placeholder="Type your message..." aria-label="Type your message" />
+                <button class="button button-primary" id="sendBotMessage" type="button">Send</button>
+              </div>
+              <a class="button button-primary full-width whatsapp-link bot-whatsapp-link" href="#" data-wa-text="Hi Zelnando, I want to use WhatsApp for my transfers">Continue to WhatsApp</a>
+              <p class="bot-note">Try: "Send 2500 HTG to Mama", "Track my transfer", or "Mwen vle voye lajan".</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq-section">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions Before Launch</h2>
+          <p>Clear answers for users, partners, and early testers.</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Is the dashboard part of the landing page?</summary>
+            <p>No. The customer dashboard belongs behind login, where users can view transfers, saved recipients, and support cases privately.</p>
+          </details>
+          <details>
+            <summary>Can users send money directly from this landing page?</summary>
+            <p>The landing page should explain the product and move users into WhatsApp. Actual transaction entry, PIN approval, and receipts happen in the authenticated customer flow.</p>
+          </details>
+          <details>
+            <summary>What is the first MVP payment method?</summary>
+            <p>Domestic mobile-money transfers through MonCash or Natcash. QR payments, photo payments, and international transfers should come after the first flow is reliable.</p>
+          </details>
+          <details>
+            <summary>How does Zelnando protect users?</summary>
+            <p>AI helps understand requests, but backend rules verify identity, amount, limits, recipient, AML status, and PIN approval before any transfer is created.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark">Z</span><span>Zelnando</span></a>
+        <p>Secure WhatsApp-first money transfers for Haiti.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <a href="#mvp">Onboarding</a>
+        <a href="#mvp">Mobile Money</a>
+        <a href="#bot">Hybrid Bot</a>
+        <a href="#roadmap">Future Services</a>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <a href="#how">How It Works</a>
+        <a href="#rates">Rates & Fees</a>
+        <a href="#architecture">Security</a>
+      </div>
+      <div>
+        <h2>Help</h2>
+        <a href="#whatsapp">WhatsApp Support</a>
+        <a href="#faq">Track Transfer</a>
+        <a href="#faq">Report an Issue</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
