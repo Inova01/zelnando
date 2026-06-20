@@ -5,7 +5,7 @@ const quoteByCurrency = {
   EUR: { rate: 148.75, fee: 3.49, feeLabel: "EUR 3.49", rateLabel: "1 EUR = 148.750 HTG" },
 };
 
-const ZELNANDO_WHATSAPP_NUMBER = "79028951929";
+const ZELNANDO_WHATSAPP_NUMBER = "15556675664";
 
 const buildWhatsAppUrl = (message) => {
   const text = encodeURIComponent(message || "Hi Zelnando");
